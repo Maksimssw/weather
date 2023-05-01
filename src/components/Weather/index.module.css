@@ -1,0 +1,12 @@
+.weather {
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.weather__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 24px;
+  height: 480px;
+}

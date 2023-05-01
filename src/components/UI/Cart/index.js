@@ -2,14 +2,14 @@ import styles from './index.module.css'
 
 const Cart = (props) => {
   return (
-    <div
+    <li
       className={`
         ${styles.cart}
         ${props.class}
       `}
     >
       {props.children}
-    </div>
+    </li>
   )
 }
 
