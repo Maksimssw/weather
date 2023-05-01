@@ -1,0 +1,5 @@
+.cart {
+  border-radius: var(--border-rd-lg);
+  background: var(--color-blue300);
+  backdrop-filter: blur(10px);
+}
