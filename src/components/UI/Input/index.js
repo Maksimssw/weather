@@ -6,7 +6,10 @@ const Input = forwardRef((props, ref) => {
   return (
     <input
       ref={ref}
-      className={styles.input}
+      className={`
+        ${styles.input}
+        ${props.class}
+      `}
       type={props.type}
       placeholder={props.placeholder}
     />

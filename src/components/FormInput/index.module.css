@@ -1,4 +1,30 @@
+.header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: var(--header-height);
+}
+
 .form {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  grid-column-gap: 12px;
+  max-width: 278px;
+  min-height: 40px;
+}
+
+.form__input {
+  padding-left: 12px;
   border-radius: var(--border-rd-lg);
   background: var(--color-opacity600);
+}
+
+.form__button {
+  border-radius: var(--border-rd-lg);
+  background: var(--color-opacity600);
+}
+
+.form__search {
+  width: 24px;
+  height: 24px;
 }

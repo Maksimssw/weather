@@ -16,6 +16,8 @@
   --container-width:  1082px;
   --container-indent: calc(50% - var(--container-width) / 2);
 
+  --header-height:    80px;
+
   --border-rd-md:     6px;
   --border-rd-lg:     10px;
 }
