@@ -1,0 +1,4 @@
+.form {
+  border-radius: var(--border-rd-lg);
+  background: var(--color-opacity600);
+}
