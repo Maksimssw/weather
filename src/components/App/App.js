@@ -1,5 +1,5 @@
-import FormInput from "../FormInput";
-import Weather from "../Weather";
+import FormInput from '../FormInput'
+import Weather from '../Weather'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Weather />
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import { forwardRef } from 'react'
 
 import styles from './index.module.css'
 

@@ -1,27 +1,19 @@
-import Cart from "../../UI/Cart";
+import Cart from '../../UI/Cart'
+import WeatherStatistic from './WeatherStatistic'
 
 import clouds from '../../../static/images/weather/clouds.webp'
 import mark from '../../../static/icons/mark.svg'
 
 import styles from './index.module.css'
-import WeatherStatistic from "./WeatherStatistic";
 
 const WeatherBase = () => {
   return (
     <Cart class={styles['weather-base']}>
       <div>
-        <img
-          className={styles['weather-base__image']}
-          src={clouds}
-          alt=""
-        />
+        <img className={styles['weather-base__image']} src={clouds} alt="" />
 
         <div className={`${styles['weather-base__location']} grid-row`}>
-          <img
-            className='icon-20'
-            src={mark}
-            alt=""
-          />
+          <img className="icon-20" src={mark} alt="" />
 
           <span>Rio do Sul, SC</span>
         </div>
