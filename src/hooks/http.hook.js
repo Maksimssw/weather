@@ -6,6 +6,7 @@ const Http = () => {
 
   const request = useCallback(async (url) => {
     setLoading(true)
+    setError(false)
 
     try {
       const res = await fetch(url)
@@ -15,6 +16,8 @@ const Http = () => {
       }
 
       const data = await res.json()
+      if (data.length === 0) throw new Error()
+
       setLoading(false)
       return data
     } catch {

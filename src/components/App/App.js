@@ -4,6 +4,7 @@ import FormInput from '../FormInput'
 import Weather from '../Weather'
 import WeatherContext from '../../store/Weather/weather-context'
 import Loading from '../Loading'
+import Error from '../Error'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -22,6 +23,7 @@ function App() {
       <main>
         {context.isValid && !loading && !error && <Weather />}
         {loading && <Loading />}
+        {error && <Error />}
       </main>
     </>
   )
