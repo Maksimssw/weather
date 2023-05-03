@@ -4,6 +4,7 @@ import { useReducer } from 'react'
 const stateReducer = {
   items: [],
   currentWeather: {},
+  infoCurrentWeather: {},
   isValid: false,
 }
 
@@ -24,9 +25,18 @@ const weatherReducer = (state, action) => {
       clouds: items.list[0].clouds.all,
     }
 
+    // Getting additional current forecasts
+    const updateInfoCurrentWeather = {
+      description: items.list[0].weather[0].description,
+      feels: celsius(items.list[0].main.feels_like),
+      pressure: items.list[0].main.pressure,
+      seaLevel: items.list[0].main.sea_level,
+    }
+
     return {
       items: action.items,
       currentWeather: updateCurrentWeather,
+      infoCurrentWeather: updateInfoCurrentWeather,
       isValid: true,
     }
   }
@@ -50,6 +60,7 @@ const WeatherContextProvider = (props) => {
   const weatherContext = {
     items: weather.items,
     currentWeather: weather.currentWeather,
+    infoCurrentWeather: weather.infoCurrentWeather,
     isValid: weather.isValid,
     addItems: addItemsHandler,
     celsius: celsius,

@@ -1,4 +1,29 @@
 .weather-info {
+  display: grid;
   grid-column: 3/4;
   grid-row: 1/2;
+  padding: 16px;
+}
+
+.weather-info__content {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.weather-info__content p {
+  text-align: center;
+  line-height: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.weather-info span {
+  text-align: center;
+  line-height: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-blue100);
 }
