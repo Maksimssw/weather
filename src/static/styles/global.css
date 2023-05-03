@@ -20,6 +20,7 @@
 
   --border-rd-md:     6px;
   --border-rd-lg:     10px;
+  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
 }
 
 *,

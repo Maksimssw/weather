@@ -1,32 +1,50 @@
+import { useContext } from 'react'
+import WeatherContext from '../../../store/Weather/weather-context'
 import Cart from '../../UI/Cart'
 import WeatherStatistic from './WeatherStatistic'
 
-import clouds from '../../../static/images/weather/clouds.webp'
 import mark from '../../../static/icons/mark.svg'
 
 import styles from './index.module.css'
 
 const WeatherBase = () => {
+  const context = useContext(WeatherContext)
+  const { currentWeather } = context
+
+  console.log(currentWeather.weather)
+  const weatherIcon = require(`../../../static/images/weather/${currentWeather.weather}.webp`)
+
   return (
     <Cart class={styles['weather-base']}>
       <div>
-        <img className={styles['weather-base__image']} src={clouds} alt="" />
+        <img
+          className={styles['weather-base__image']}
+          src={weatherIcon}
+          alt=""
+        />
 
         <div className={`${styles['weather-base__location']} grid-row`}>
           <img className="icon-20" src={mark} alt="" />
 
-          <span>Rio do Sul, SC</span>
+          <span>
+            {currentWeather.city}, {currentWeather.country}
+          </span>
         </div>
 
         <div className={styles['weather-base__temp']}>
-          <span className={styles['weather-base__medium']}>18</span>
+          <span className={styles['weather-base__medium']}>
+            {currentWeather.temp}
+          </span>
           <span className={styles['weather-base__info']}>
-            22°
-            <i>16°</i>
+            {currentWeather.maxTemp}°<i>{currentWeather.minTemp}°</i>
           </span>
         </div>
       </div>
-      <WeatherStatistic />
+      <WeatherStatistic
+        humidity={currentWeather.humidity}
+        wind={currentWeather.wind}
+        clouds={currentWeather.clouds}
+      />
     </Cart>
   )
 }
