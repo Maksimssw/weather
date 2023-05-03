@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Input from '../UI/Input'
 import Button from '../UI/Button'
 import WeatherContext from '../../store/Weather/weather-context'
@@ -7,11 +7,15 @@ import server from '../../server/server'
 import search from '../../static/icons/search.svg'
 import styles from './index.module.css'
 
-const FormInput = () => {
+const FormInput = (props) => {
   const inputValue = useRef()
   const context = useContext(WeatherContext)
 
-  const { requsetСoordinates, requestWeather } = server()
+  const { loading, error, requsetСoordinates, requestWeather } = server()
+
+  useEffect(() => {
+    props.inToggleState(loading, error)
+  }, [loading, error])
 
   const submitHandler = (event) => {
     event.preventDefault()

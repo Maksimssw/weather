@@ -1,19 +1,24 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 import FormInput from '../FormInput'
 import Weather from '../Weather'
 import WeatherContext from '../../store/Weather/weather-context'
 import Loading from '../Loading'
-import server from '../../server/server'
 
 function App() {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+
   const context = useContext(WeatherContext)
 
-  const { loading, error } = server()
+  const toggleStateHandler = (loading, error) => {
+    setLoading(loading)
+    setError(error)
+  }
 
   return (
     <>
-      <FormInput />
+      <FormInput inToggleState={toggleStateHandler} />
       <main>
         {context.isValid && !loading && !error && <Weather />}
         {loading && <Loading />}
