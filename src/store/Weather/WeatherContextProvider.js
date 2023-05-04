@@ -5,12 +5,13 @@ const stateReducer = {
   items: [],
   currentWeather: {},
   infoCurrentWeather: {},
+  hoursWeatherItems: [],
   isValid: false,
 }
 
 const weatherReducer = (state, action) => {
   if (action.type === 'ADD_ITEMS') {
-    const { items, celsius } = action
+    const { items, celsius, getDate } = action
 
     // Getting current forecasts
     const updateCurrentWeather = {
@@ -33,10 +34,18 @@ const weatherReducer = (state, action) => {
       seaLevel: items.list[0].main.sea_level,
     }
 
+    // Today's weather clock
+    const currentData = getDate(items.list[0].dt_txt)
+    const updateHoursWeatherItems = items.list.filter((list, index) => {
+      if (index === 0) return
+      return getDate(list.dt_txt) === currentData
+    })
+
     return {
       items: action.items,
       currentWeather: updateCurrentWeather,
       infoCurrentWeather: updateInfoCurrentWeather,
+      hoursWeatherItems: updateHoursWeatherItems,
       isValid: true,
     }
   }
@@ -52,17 +61,23 @@ const WeatherContextProvider = (props) => {
       type: 'ADD_ITEMS',
       items: data,
       celsius: celsius,
+      getDate: getDate,
     })
   }
 
   const celsius = (kelvins) => (kelvins - 273.15).toFixed(0)
 
+  const getDate = (date) => date.split('').splice(0, 10).join('')
+  const getHours = (date) => date.split('').splice(11, 16).join('')
+
   const weatherContext = {
     items: weather.items,
     currentWeather: weather.currentWeather,
     infoCurrentWeather: weather.infoCurrentWeather,
+    hoursWeatherItems: weather.hoursWeatherItems,
     isValid: weather.isValid,
     addItems: addItemsHandler,
+    getHours: getHours,
     celsius: celsius,
   }
 

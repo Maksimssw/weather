@@ -4,9 +4,11 @@ const WeatherContext = createContext({
   items: [],
   currentWeather: {},
   infoCurrentWeather: {},
+  hoursWeatherItems: [],
   isValid: false,
   addItems: (data) => {},
-  celsius: (kelvins) => {},
+  getHours: (date) => {},
+  celsius: (kelvin) => {},
 })
 
 export default WeatherContext

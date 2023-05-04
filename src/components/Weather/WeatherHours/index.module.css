@@ -1,4 +1,48 @@
 .weather-hours {
   grid-column: 3/5;
   grid-row: 2/3;
+  padding: 40px;
+}
+
+.weather-hours__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 12px;
+  justify-content: center;
+}
+
+.weather-hours__item {
+  display: grid;
+  grid-row-gap: 16px;
+}
+
+.weather-hours__time {
+  text-align: center;
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-gray150);
+}
+
+.weather-hours__image {
+  margin: 0 auto;
+  width: 64px;
+  height: 64px;
+}
+
+.weather-hours__info {
+  text-align: center;
+  line-height: 19px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.weather-hours__info i {
+  margin-left: 4px;
+  line-height: 19px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-blue100);
 }

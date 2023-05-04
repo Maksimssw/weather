@@ -11,7 +11,6 @@ const WeatherBase = () => {
   const context = useContext(WeatherContext)
   const { currentWeather } = context
 
-  console.log(currentWeather.weather)
   const weatherIcon = require(`../../../static/images/weather/${currentWeather.weather}.webp`)
 
   return (
