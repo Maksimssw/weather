@@ -2,3 +2,32 @@
   grid-column: 4/5;
   grid-row: 1/2;
 }
+
+.weather-days__list {
+  display: grid;
+  grid-row-gap: 10px;
+  padding: 12px;
+}
+
+.weather-days__item {
+  justify-content: space-between;
+}
+
+.weather-days__text {
+  line-height: 26px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.weather-days__image {
+  width: 32px;
+  height: 32px;
+}
+
+.weather-days__temp {
+  line-height: 30px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-blue100);
+}

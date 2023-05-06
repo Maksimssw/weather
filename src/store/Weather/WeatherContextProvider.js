@@ -6,12 +6,13 @@ const stateReducer = {
   currentWeather: {},
   infoCurrentWeather: {},
   hoursWeatherItems: [],
+  nextDays: [],
   isValid: false,
 }
 
 const weatherReducer = (state, action) => {
   if (action.type === 'ADD_ITEMS') {
-    const { items, celsius, getDate } = action
+    const { items, celsius, getDate, getHours } = action
 
     // Getting current forecasts
     const updateCurrentWeather = {
@@ -41,11 +42,22 @@ const weatherReducer = (state, action) => {
       return getDate(list.dt_txt) === currentData
     })
 
+    // Get the weather of the following days
+    const updateNextDays = items.list
+      .filter((list) => {
+        return currentData !== getDate(list.dt_txt)
+      })
+      .filter((list) => {
+        return getHours(list.dt_txt) === '15:00:00'
+      })
+    console.log(updateNextDays)
+
     return {
       items: action.items,
       currentWeather: updateCurrentWeather,
       infoCurrentWeather: updateInfoCurrentWeather,
       hoursWeatherItems: updateHoursWeatherItems,
+      nextDays: [],
       isValid: true,
     }
   }
@@ -62,6 +74,7 @@ const WeatherContextProvider = (props) => {
       items: data,
       celsius: celsius,
       getDate: getDate,
+      getHours: getHours,
     })
   }
 
@@ -75,6 +88,7 @@ const WeatherContextProvider = (props) => {
     currentWeather: weather.currentWeather,
     infoCurrentWeather: weather.infoCurrentWeather,
     hoursWeatherItems: weather.hoursWeatherItems,
+    nextDays: weather.nextDays,
     isValid: weather.isValid,
     addItems: addItemsHandler,
     getHours: getHours,
