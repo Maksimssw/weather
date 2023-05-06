@@ -1,7 +1,6 @@
 import { createContext } from 'react'
 
 const WeatherContext = createContext({
-  items: [],
   currentWeather: {},
   infoCurrentWeather: {},
   hoursWeatherItems: [],

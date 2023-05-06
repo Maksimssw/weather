@@ -2,7 +2,6 @@ import WeatherContext from './weather-context'
 import { useReducer } from 'react'
 
 const stateReducer = {
-  items: [],
   currentWeather: {},
   infoCurrentWeather: {},
   hoursWeatherItems: [],
@@ -50,14 +49,17 @@ const weatherReducer = (state, action) => {
       .filter((list) => {
         return getHours(list.dt_txt) === '15:00:00'
       })
-    console.log(updateNextDays)
+      .map((list) => {
+        const date = getDate(list.dt_txt)
+        const week = new Date(date).toString().split('').splice(0, 3).join('')
+        return { ...list, week: week }
+      })
 
     return {
-      items: action.items,
       currentWeather: updateCurrentWeather,
       infoCurrentWeather: updateInfoCurrentWeather,
       hoursWeatherItems: updateHoursWeatherItems,
-      nextDays: [],
+      nextDays: updateNextDays,
       isValid: true,
     }
   }
@@ -84,7 +86,6 @@ const WeatherContextProvider = (props) => {
   const getHours = (date) => date.split('').splice(11, 16).join('')
 
   const weatherContext = {
-    items: weather.items,
     currentWeather: weather.currentWeather,
     infoCurrentWeather: weather.infoCurrentWeather,
     hoursWeatherItems: weather.hoursWeatherItems,
