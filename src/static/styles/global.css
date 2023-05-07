@@ -23,6 +23,18 @@
   font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
 }
 
+@media (max-width: 1600px) {
+  :root {
+    --container-indent: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --container-indent: 20px;
+  }
+}
+
 *,
 *:before,
 *:after {
@@ -62,12 +74,11 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
 }
 
 main:after {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 100%;

@@ -1,5 +1,6 @@
-import WeatherContext from './weather-context'
 import { useReducer } from 'react'
+
+import WeatherContext from './weather-context'
 
 const stateReducer = {
   currentWeather: {},

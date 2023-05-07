@@ -27,3 +27,16 @@
   font-weight: 700;
   color: var(--color-blue100);
 }
+
+@media (max-width: 1200px) {
+ .weather-info {
+   grid-column: 1/2;
+   grid-row: 3/4;
+ }
+}
+
+@media (max-width: 767px) {
+  .weather-info {
+    grid-column: 1/3;
+  }
+}

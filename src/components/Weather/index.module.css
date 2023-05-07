@@ -1,4 +1,5 @@
 .weather {
+  position: relative;
   display: grid;
   align-items: center;
   min-height: calc(100vh - var(--header-height));
@@ -10,4 +11,25 @@
   grid-template-rows: 1fr 1fr;
   grid-gap: 24px;
   height: 480px;
+}
+
+@media (max-width: 1600px) {
+  .weather {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .weather__container {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+}
+
+@media (max-width:  767px) {
+  .weather__container {
+    grid-template-columns: 1fr;
+  }
 }

@@ -124,3 +124,48 @@
   font-weight: 700;
   color: var(--color-gray150);
 }
+
+@media (max-width: 1200px) {
+  .weather-base {
+    grid-row: 1/3;
+    grid-column: 1/3;
+    grid-row-gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .weather-base__image {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 520px) {
+  .weather-base__medium {
+    font-size: 60px;
+  }
+
+  .weather-base__medium:after {
+    top: 18px;
+  }
+
+  .weather-base__item {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-base__location {
+    margin-top: 40px;
+    padding: 0;
+  }
+
+  .weather-base__temp {
+    padding-top: 30px;
+  }
+
+  .weather-base__list {
+    grid-template-columns: 1fr;
+    grid-row-gap: 8px;
+  }
+}

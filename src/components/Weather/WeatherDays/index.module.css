@@ -1,6 +1,7 @@
 .weather-days {
   grid-column: 4/5;
   grid-row: 1/2;
+  display: grid;
 }
 
 .weather-days__list {
@@ -30,4 +31,18 @@
   font-size: 22px;
   font-weight: 700;
   color: var(--color-blue100);
+}
+
+@media (max-width: 1200px) {
+  .weather-days {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+}
+
+@media (max-width: 767px) {
+  .weather-days {
+    grid-column: 1/3;
+    grid-row: 5/6;
+  }
 }

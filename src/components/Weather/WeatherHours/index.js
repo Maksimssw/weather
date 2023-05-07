@@ -10,17 +10,24 @@ const WeatherHours = () => {
   const context = useContext(WeatherContext)
   const { hoursWeatherItems, getHours, celsius } = context
 
-  const hoursList = hoursWeatherItems.map((list) => {
-    return (
-      <WeatherHoursItem
-        key={list.dt_txt}
-        maxTemp={celsius(list.main.temp_max)}
-        minTemp={celsius(list.main.temp_min)}
-        image={list.weather[0].main.toLowerCase()}
-        hour={getHours(list.dt_txt)}
-      />
+  const hoursList =
+    hoursWeatherItems.length !== 0 ? (
+      hoursWeatherItems.map((list) => {
+        return (
+          <WeatherHoursItem
+            key={list.dt_txt}
+            maxTemp={celsius(list.main.temp_max)}
+            minTemp={celsius(list.main.temp_min)}
+            image={list.weather[0].main.toLowerCase()}
+            hour={getHours(list.dt_txt)}
+          />
+        )
+      })
+    ) : (
+      <p className={styles['weather-hours__error']}>
+        Not a single result was found
+      </p>
     )
-  })
 
   return (
     <Cart class={styles['weather-hours']}>
