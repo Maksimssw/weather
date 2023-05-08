@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef } from 'react'
+
 import Input from '../UI/Input'
 import Button from '../UI/Button'
 import WeatherContext from '../../store/Weather/weather-context'

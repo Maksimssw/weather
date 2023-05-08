@@ -1,10 +1,10 @@
 import { useContext } from 'react'
+
 import WeatherContext from '../../../store/Weather/weather-context'
 import Cart from '../../UI/Cart'
 import WeatherStatistic from './WeatherStatistic'
 
 import mark from '../../../static/icons/mark.svg'
-
 import styles from './index.module.css'
 
 const WeatherBase = () => {

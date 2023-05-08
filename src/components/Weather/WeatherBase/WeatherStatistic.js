@@ -1,5 +1,4 @@
 import styles from './index.module.css'
-
 import wind from '../../../static/icons/wind.svg'
 import humidity from '../../../static/icons/humidity.svg'
 import clouds from '../../../static/icons/clouds.svg'
